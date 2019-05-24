@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>4 em linhas</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo/estilo.css" type="text/css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+</head>
+
+<body>
+<div class="modal-paginaPrincipal">
+    <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-3">
+                        <img class="mb-2 img-fluid" src="img/logo.png" width="250px" height="265px" alt="logo">
+                    </div> 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                        <h4 class="text-center mb-3">SELECIONE O NÍVEL DE DIFICULDADE</h4>
+                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group formato-button btn-group-lg " role="group" aria-label="First group" id="escolheNivel">
+                                <button type="button" class="btn btn-secondary corButton" id="facil">Fácil</button>
+                                <button type="button" class="btn btn-secondary corButton" id="medio">Médio</button>
+                                <button type="button" class="btn btn-secondary corButton" id="dificil">Difícil</button>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 formato-button">
+                    <button type="button" class="btn btn-primary cor-button-jogar" id="jogar">Jogar</button>   
+                </div>
+            </div>
+        </div>
+</div>
+    
+    
+
+<script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+<script src="bootstrap/js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/iniciaJogo.js"></script>
+<script src="js/estadoTabuleiro.js"></script>
+<script src="js/miniMax.js"></script>
+<script src="js/manipulaTabuleiro.js"></script>
+
+
+</body>
+</html>

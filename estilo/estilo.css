@@ -1,0 +1,150 @@
+/* *, *::before, *::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+} */
+
+body{
+    background: #eeeeee;
+}
+
+.container{
+    padding-top: 5px;
+}
+/* .containerFull {
+    width: 675px;
+    margin: 0 auto;
+    border: 1px solid red;
+} */
+.img{
+    width: 300px;
+    height: 275px;
+}
+
+.rowT {
+    clear: both;
+}
+
+.rowT div {
+    font-size: 3em;
+    float: left;
+    width: 70px;
+    height: 70px;
+    border-left: 4px inset #f0af60;
+    border-right: 4px inset #f0af60;
+    border-bottom: 4px inset #f0af60;
+    border-top: 4px inset #f0af60;
+    border-radius: 50%;
+}
+
+
+.line-1 div:nth-child(n)  {
+    background: #008e97;
+    color: #ff8c00;
+}
+
+/* .line-2 div:nth-child(n)  {
+    background: #008e97;
+    color: #fff;
+} */
+
+.formato-tabuleiro{
+    margin: 0 auto !important;
+    background: #ff8c00;
+    border: 1px solid #ff8c00;
+}
+
+h2{
+    font-family: Roboto;
+    text-align: center;
+    padding: 10px;
+    color: #FF4500;
+}
+
+h4{
+    font-family: 'ABeeZee';
+    text-align: center;
+}
+/* #cabecalho{
+    height: 60px;
+    background: #4682B4;
+    margin-bottom: 20px;
+} */
+
+.formato-button{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.corButton{
+    background: #008e97;
+    border: #008e97;
+}
+
+.corButton:hover{
+    background: #68ccd3f6;
+    border: #68ccd3f6;
+}
+
+.cor-button-jogar{
+    margin-top: 20px;
+    width: 250px;
+    height: 50px;
+    background: #ff8c00;
+    border: #ff8c00;
+}
+
+.cor-button-jogar:hover{
+    background: #f0af60;
+    border: #f0af60;
+}
+
+.modal-paginaPrincipal{
+    background:#fff;
+	padding: 30px;
+	margin: 50px auto 0 auto;
+	width: 40%;
+}
+
+.formato-ia{
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.formato-users{
+    margin-top:20px;
+    text-align: center;
+}
+
+.container-cabecalho{
+    margin: 0 auto;
+    /* border:1px solid red; */
+    background: #008e97;
+    padding-bottom: 10px;
+
+}
+
+.borda-jogadores{
+    border:3px solid #ff8c00;
+    background: #008e97;
+    width: 100px;
+    height: 130px;
+    margin: 0 auto;
+}
+.teste{
+  position:relative;
+  left:11%;
+  top:60%;
+  /* transform: translate(-50%, -50%);*/
+}
+@media only screen and (max-width: 600px) {
+    
+    .modal-paginaPrincipal{
+        background:#fff;
+        padding: 30px;
+        margin: 50px auto 0 auto;
+        width: 70%;
+    }
+}
