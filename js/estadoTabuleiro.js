@@ -8,7 +8,8 @@ class EstadoTabuleiro{
         [0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0]
     ];
-
+    tamLinha = 6;
+    tamColuna = 7;
     minimax = 0; // valor de minimax de cada estado criado
     acao = []; // acao que foi realizada para chegar nesse estado (valor de i, j para posicionar uma peça)
     melhorAcao = [-1,-1]; // valores de i, j -> posicicao onde o estado realizara 
@@ -109,6 +110,97 @@ class EstadoTabuleiro{
             }
         }
         return clone;
+    }
+
+    terminar(){
+
+        contador = 0;
+        jogador = 0;
+
+        //horizontalmente
+        for (let i = 0; i < this.tamLinha; i++) {
+            for (let j = 0; j < this.tamColuna; j++) {
+
+                if(this.matrizTabuleiro[i][j] == jogador){
+                    contador++;
+                    if(contador == 4) if(jogador == 1){return 10000;}else{return -10000;}
+                }else{
+                    jogador = this.matrizTabuleiro[i][j];
+                    contador = 1;
+                }
+            }
+            contador = 0;
+        }
+        
+        //verticalmente
+        for (let index = 0; index < this.tamColuna; index++) {
+            for (let index = 0; index < this.tamLinha; index++) {
+                if(this.matrizTabuleiro[i][j] == jogador){
+                    contador++;
+                    if(contador == 4) if(jogador == 1){return 10000;}else{return -10000;}
+                }else{
+                    jogador = this.matrizTabuleiro[i][j];
+                    contador = 1;
+                }
+            }
+            contador = 0;
+        }
+
+        //diagonal a cima direita
+        for (let k = 3; k < this.tamLinha; k++) {
+            for (let i = k, j = 0; i >= 0, j < this.tamColuna; i--, j++) {
+                if(this.matrizTabuleiro[i][j] == jogador){
+                    contador++;
+                    if(contador == 4) if(jogador == 1){return 10000;}else{return -10000;}
+                }else{
+                    jogador = this.matrizTabuleiro[i][j];
+                    contador = 1;
+                }
+            }
+            contador = 0;
+        }
+        k = this.tamLinha-1;
+        for (let w = 1; w < this.tamColuna-4; w++) {
+            for (let i = k, j = w; i >= 0, j < this.tamColuna; i--, j++) {
+                if(this.matrizTabuleiro[i][j] == jogador){
+                    contador++;
+                    if(contador == 4) if(jogador == 1){return 10000;}else{return -10000;}
+                }else{
+                    jogador = this.matrizTabuleiro[i][j];
+                    contador = 1;
+                }
+            }
+            contador = 0;
+        }
+
+        //diagonal pra baixo
+        for (let k = this.tamLinha -4 ; k >= 0; k--) {
+            for (let i = k, j = 0; i < this.tamLinha, j < this.tamColuna; i++, j++) {
+                if(this.matrizTabuleiro[i][j] == jogador){
+                    contador++;
+                    if(contador == 4) if(jogador == 1){return 10000;}else{return -10000;}
+                }else{
+                    jogador = this.matrizTabuleiro[i][j];
+                    contador = 1;
+                }
+            }
+            contador = 0;
+        }
+        k = 0;
+        for (let w = 1; w < this.tamColuna-4; w++) {
+            for (let i = k, j = w; i < this.tamLinha, j < this.tamColuna; i++, j++) {
+                if(this.matrizTabuleiro[i][j] == jogador){
+                    contador++;
+                    if(contador == 4) if(jogador == 1){return 10000;}else{return -10000;}
+                }else{
+                    jogador = this.matrizTabuleiro[i][j];
+                    contador = 1;
+                }
+            }
+            contador = 0;
+        }
+        
+        
     }
 
     //Verificar se existe um vencedor
