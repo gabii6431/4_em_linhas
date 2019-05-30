@@ -14,9 +14,9 @@ $('.container div.rowT div').click(function(){
     var id = $(this).attr('id');
 
     //Verificar se o usuario clicou na coluna 0
-    if(id == 1 || id == 7 || id == 13 || id == 19 || id == 25 || id == 31)
+    if(id == 1 || id == 8 || id == 15 || id == 22 || id == 29 || id == 36)
     {
-        for (let i = 31; i > 0; i = i - 6)
+        for (let i = 36; i > 0; i = i - 7)
         {
             var j = i.toString();
 
@@ -53,9 +53,9 @@ $('.container div.rowT div').click(function(){
     }
     
     //Verificar se o usuario clicou na coluna 1
-    else if(id == 2 || id == 8 || id == 14 || id == 20 || id == 26 || id == 32)
+    else if(id == 2 || id == 9 || id == 16 || id == 23 || id == 30 || id == 37)
     {
-        for (let i = 32; i > 0; i = i - 6) 
+        for (let i = 37; i > 0; i = i - 7) 
         {
             var j = i.toString();
             if(document.getElementById(j).textContent == "")
@@ -89,9 +89,9 @@ $('.container div.rowT div').click(function(){
     }
     
     //Verificar se o usuario clicou na coluna 2
-    else if(id == 3 || id == 9 || id == 15 || id == 21 || id == 27 || id == 33)
+    else if(id == 3 || id == 10 || id == 16 || id == 24 || id == 31 || id == 38)
     {
-        for (let i = 33; i > 0; i = i - 6) 
+        for (let i = 38; i > 0; i = i - 7) 
         {
             var j = i.toString();
             if(document.getElementById(j).textContent == "")
@@ -125,9 +125,9 @@ $('.container div.rowT div').click(function(){
     }
     
     //Verificar se o usuario clicou na coluna 3
-    else if(id == 4 || id == 10 || id == 16 || id == 22 || id == 28 || id == 34)
+    else if(id == 4 || id == 11 || id == 18 || id == 25 || id == 32 || id == 39)
     {
-        for (let i = 34; i > 0; i = i - 6) 
+        for (let i = 39; i > 0; i = i - 7) 
         {
             var j = i.toString();
             if(document.getElementById(j).textContent == "")
@@ -162,9 +162,9 @@ $('.container div.rowT div').click(function(){
     }
 
     //Verificar se o usuario clicou na coluna 4
-    else if(id == 5 || id == 11 || id == 17 || id == 23 || id == 29 || id == 35)
+    else if(id == 5 || id == 12 || id == 19 || id == 26 || id == 33 || id == 40)
     {
-        for (let i = 35; i > 0; i = i - 6) 
+        for (let i = 40; i > 0; i = i - 7) 
         {
             var j = i.toString();
             if(document.getElementById(j).textContent == "")
@@ -199,9 +199,45 @@ $('.container div.rowT div').click(function(){
     }
     
     //Verificar se o usuario clicou na coluna 5
-    else if(id == 6 || id == 12 || id == 18 || id == 24 || id == 30 || id == 36)
+    else if(id == 6 || id == 13 || id == 20 || id == 27 || id == 34 || id == 41)
     {
-        for (let i = 36; i > 0; i = i - 6) 
+        for (let i = 41; i > 0; i = i - 7) 
+        {
+            var j = i.toString();
+            if(document.getElementById(j).textContent == "")
+            {
+                let posI = calculaPosicao(j)[0];
+                let posJ = calculaPosicao(j)[1];
+                
+                if(jogadorAtual == -1)
+                {
+                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
+                    let e = objEstado.clonar();
+                    let ia = new MiniMax(e);
+                    jogadorAtual = 1;
+                    let m = ia.melhorJogada();
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
+                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
+                    setPosicaoJogador(calculaId,jogadorAtual);
+                    jogadorAtual = -1;
+
+                }
+                else
+                {
+                    setPosicaoJogador(i,jogador);
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
+                    jogadorAtual = -1;
+                }
+                break;
+            }
+        }
+    }
+
+    //Verificar se o usuario clicou na coluna 6
+    else if(id == 7 || id == 14 || id == 21 || id == 28 || id == 35 || id == 42)
+    {
+        for (let i = 42; i > 0; i = i - 7) 
         {
             var j = i.toString();
             if(document.getElementById(j).textContent == "")
