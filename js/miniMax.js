@@ -3,10 +3,9 @@ class MiniMax{
     beta = 5000; //MIN  
 
     minimax(estado){
-        let terminou = estado.terminou();
-        let max = -10000;
+        let max = -1000000;
         let melhorJogada;
-        if (terminou != -1){
+        if (estado.perdi()){
             //redireciona para pagina de vitoria do jogador
         }
         let novosEstados = estado.filhos(1);
@@ -22,14 +21,14 @@ class MiniMax{
                 melhorJogada = filho;
             }
         }
-        console.log(melhorJogada)
+        //console.log(melhorJogada)
         return melhorJogada.acao;
     }
 
     max(estado,nivel){
         let terminou = estado.terminou();
-        let max = -10001;
-        let dificuldade = 3
+        let max = -1000000;
+        let dificuldade = 6
         // let dificuldade = localStorage.getItem('dificuldade');
         if (terminou != -1){
             return terminou;
@@ -56,8 +55,8 @@ class MiniMax{
     }
     min(estado,nivel){
         let terminou = estado.terminou();
-        let min = 10001;
-        let dificuldade = 3
+        let min = 1000000;
+        let dificuldade = 6
         // let dificuldade = localStorage.getItem('dificuldade')
         if (terminou != -1){
             return terminou;

@@ -93,7 +93,7 @@ class EstadoTabuleiro{
         return arrayCombo;
     }
     calculaNota(){
-		
+		return 0;
 		for(let j = 0; j < this.tamColuna; j++) for(let i = this.tamLinha - 1; i >=0 ; i--){
 			if(this.matrizTabuleiro == 0) for(let count = 2 ; i>=0; i--, count++){
 				this.matrizTabuleiro[i][j] = count;

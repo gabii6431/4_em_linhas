@@ -149,6 +149,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(ganhei()){
+                        //redireciona para tela de vitoria
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
