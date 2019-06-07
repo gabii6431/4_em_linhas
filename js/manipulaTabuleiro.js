@@ -3,11 +3,14 @@ var jogadorAtual = -1 // quem comeca jogar é sempre o X
 //JOGADOR -1 = X -> Usuario (Comeca Jogando)
 //JOGADOR 1 = O -> IA
 
+
+
 //Objeto EstadoTabuleiro
 var objEstado = new EstadoTabuleiro();
 
 // Função para realizar as jogas quando ocorrer um click
 $('.container div.rowT div').click(function(){
+    
     //console.log(localStorage.getItem('nivel'));
     
     // Captura o ID da posição da peça
@@ -33,11 +36,11 @@ $('.container div.rowT div').click(function(){
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
                     objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     let e = objEstado.clonar(); //clona o estado pai
-                    let ia = new MiniMax(e); //cria um objeto do tipo minimax
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
-                    let m = ia.melhorJogada(); //chama a funcao de minimax para determinar a melhor jogada para a IA
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1); //calcula o id associado a essa melhor jogasa
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     jogadorAtual = -1; //troca o jogador (Usuario)
                 }
@@ -65,16 +68,16 @@ $('.container div.rowT div').click(function(){
                 
                 if(jogadorAtual == -1)
                 {
-                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
-                    let e = objEstado.clonar();
-                    let ia = new MiniMax(e);
-                    jogadorAtual = 1;
-                    let m = ia.melhorJogada();
-                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
-                    setPosicaoJogador(calculaId,jogadorAtual);
-                    jogadorAtual = -1;
+                    setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    let e = objEstado.clonar(); //clona o estado pai
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
+                    jogadorAtual = 1; //troca o jogador (IA)
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
+                    setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
                 else
@@ -101,16 +104,16 @@ $('.container div.rowT div').click(function(){
                 
                 if(jogadorAtual == -1)
                 {
-                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
-                    let e = objEstado.clonar();
-                    let ia = new MiniMax(e);
-                    jogadorAtual = 1;
-                    let m = ia.melhorJogada();
-                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
-                    setPosicaoJogador(calculaId,jogadorAtual);
-                    jogadorAtual = -1;
+                    setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    let e = objEstado.clonar(); //clona o estado pai
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
+                    jogadorAtual = 1; //troca o jogador (IA)
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
+                    setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
                 else
@@ -137,16 +140,16 @@ $('.container div.rowT div').click(function(){
                 
                 if(jogadorAtual == -1)
                 {
-                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
-                    let e = objEstado.clonar();
-                    let ia = new MiniMax(e);
-                    jogadorAtual = 1;
-                    let m = ia.melhorJogada();
-                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
-                    setPosicaoJogador(calculaId,jogadorAtual);
-                    jogadorAtual = -1;
+                    setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    let e = objEstado.clonar(); //clona o estado pai
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
+                    jogadorAtual = 1; //troca o jogador (IA)
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
+                    setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
                 else
@@ -174,16 +177,16 @@ $('.container div.rowT div').click(function(){
                 
                 if(jogadorAtual == -1)
                 {
-                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
-                    let e = objEstado.clonar();
-                    let ia = new MiniMax(e);
-                    jogadorAtual = 1;
-                    let m = ia.melhorJogada();
-                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
-                    setPosicaoJogador(calculaId,jogadorAtual);
-                    jogadorAtual = -1;
+                    setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    let e = objEstado.clonar(); //clona o estado pai
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
+                    jogadorAtual = 1; //troca o jogador (IA)
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
+                    setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
                 else
@@ -211,16 +214,16 @@ $('.container div.rowT div').click(function(){
                 
                 if(jogadorAtual == -1)
                 {
-                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
-                    let e = objEstado.clonar();
-                    let ia = new MiniMax(e);
-                    jogadorAtual = 1;
-                    let m = ia.melhorJogada();
-                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
-                    setPosicaoJogador(calculaId,jogadorAtual);
-                    jogadorAtual = -1;
+                    setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    let e = objEstado.clonar(); //clona o estado pai
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
+                    jogadorAtual = 1; //troca o jogador (IA)
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
+                    setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
                 else
@@ -247,16 +250,16 @@ $('.container div.rowT div').click(function(){
                 
                 if(jogadorAtual == -1)
                 {
-                    setPosicaoJogador(i,jogadorAtual); // coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual;
-                    let e = objEstado.clonar();
-                    let ia = new MiniMax(e);
-                    jogadorAtual = 1;
-                    let m = ia.melhorJogada();
-                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]);
-                    let calculaId = (m[0]*(objEstado.matrizTabuleiro.length)) + (m[1] + 1);
-                    setPosicaoJogador(calculaId,jogadorAtual);
-                    jogadorAtual = -1;
+                    setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
+                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    let e = objEstado.clonar(); //clona o estado pai
+                    let ia = new MiniMax(); //cria um objeto do tipo minimax
+                    jogadorAtual = 1; //troca o jogador (IA)
+                    let m = ia.minimax(e); //chama a funcao de minimax para determinar a acao para a IA
+                    objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
+                    let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
+                    setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
                 else
@@ -303,8 +306,8 @@ $('.container div.rowT div').click(function(){
 
  //Funcao que calcula a posicao i, j de um determinado id
 function calculaPosicao(id){
-    i = Math.trunc((id - 1) / 6);
-    j = (id - 1) % 6;
+    i = Math.trunc((id - 1) / 7);
+    j = (id - 1) % 7;
     posId = [];
     posId.push(i);
     posId.push(j);

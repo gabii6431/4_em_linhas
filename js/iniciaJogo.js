@@ -20,13 +20,13 @@ window.addEventListener("load", function(){
             alert("Você não selecionou o nivel de dificuldade a ser jogado!!!!!")
         }else{
             if(nivelEscolhido == 3){
-                localStorage.setItem("nivel",nivelEscolhido);
+                localStorage.setItem("dificuldade",nivelEscolhido);
                 window.open('tabuleiro.html','janela');
             }else if(nivelEscolhido == 2){
-                localStorage.setItem("nivel",nivelEscolhido);
+                localStorage.setItem("dificuldade",nivelEscolhido);
                 window.open('tabuleiro.html','janela');
             }else if(nivelEscolhido == 1){
-                localStorage.setItem("nivel",nivelEscolhido);
+                localStorage.setItem("dificuldade",nivelEscolhido);
                 window.open('tabuleiro.html','janela');
             }
         }

@@ -15,9 +15,6 @@ class EstadoTabuleiro{
     melhorAcao = [-1,-1]; // valores de i, j -> posicicao onde o estado realizara 
                           // a melhor jogada de acordo com o valor de minimax
 
-    constructor(){
-        
-    }
 
     //Realizar jogada no tabuleiro
     realizarJogada(jogador, i, j) 
@@ -50,6 +47,107 @@ class EstadoTabuleiro{
             
     }
 
+    geraCombinações(){
+        let arrayCombo = [];
+        let combo = [];
+        //primeiro pega as verticais
+        for(let i = 0; i < this.tamLinha - 3; i++){
+            for(let j = 0; j < this.tamColuna; j++){
+                for(let k = 0; k < 4; k++){
+                    combo[k] = this.matrizTabuleiro[i+k][j];
+                }
+                arrayCombo.push(combo.slice(0));
+            }
+        }
+
+        //agora as horizontais
+        for(let i = 0; i < this.tamLinha; i++){
+            for(let j = 0; j < this.tamColuna - 3; j++){
+                for(let k = 0; k < 4; k++){
+                    combo[k] = this.matrizTabuleiro[i][j+k];
+                }
+                arrayCombo.push(combo.slice(0));
+            }
+        }
+
+        //diagonais segundo quadrante
+        for(let i = 0; i < this.tamLinha - 3; i++){
+            for(let j = 0; j < this.tamColuna - 3; j++){
+                for(let k = 0; k < 4; k++){
+                    combo[k] = this.matrizTabuleiro[i+k][j+k];
+                }
+                arrayCombo.push(combo.slice(0));
+            }
+        }
+
+        //diagonais primeiro quadrante
+        for(let i = 3; i < this.tamLinha; i++){
+            for(let j = 0; j < this.tamColuna - 3; j++){
+                for(let k = 0; k < 4; k++){
+                    combo[k] = this.matrizTabuleiro[i-k][j+k];
+                }
+                arrayCombo.push(combo.slice(0));
+            }
+        }
+        log.console(arrayCombo.toString());
+        return arrayCombo;
+    }
+    calculaNota(){
+		
+		for(let j = 0; j < this.tamColuna; j++) for(let i = this.tamLinha - 1; i >=0 ; i--){
+			if(this.matrizTabuleiro == 0) for(let count = 2 ; i>=0; i--, count++){
+				this.matrizTabuleiro[i][j] = count;
+			}
+		}
+
+		//X -> PC Z -> JOGADOR
+
+		//XXX2 -> NOTA 5
+
+		//XXX3 -> NOTA 2000
+
+		//XXX4 -> NOTA 500
+
+		//XXX(>5) -> NOTA 400
+
+		//ZZZ2 -> NOTA -10000
+
+		//ZZZ3 -> NOTA -4000
+		
+		//ZZZ4 -> NOTA -500
+
+		//ZZZ(>5) NOTA -400
+
+		//XX2(>1) -> NOTA 100
+
+		//XX3(>1)  -> NOTA 1500
+
+		//XX4(>1)  -> NOTA 
+
+		//XX(>5)(>1)  -> NOTA 
+
+		//ZZ2(>1)  -> NOTA 
+
+		//ZZ3(>1)  -> NOTA 
+		
+		//ZZ4(>1)  -> NOTA 
+
+		//ZZ(>5)(>1)  NOTA 
+
+		//CASOS COM LACUNA
+
+		//X00X
+
+		//X0XX
+
+
+		//AO FINALIZAR O CALCULO DE NOTA É MELHOR RETORNAR O TABULEIRO AO ESTADO ORIGINAL (nao sei se ele é usado pra gerar o novo deopois de calcular a nota ainda)
+		for(let j = 0; j < this.tamColuna; j++) for(let i = 0; i < this.tamLinha; i++) if(this.matrizTabuleiro[i][j] > 1) this.matrizTabuleiro[i][j] = 0;
+
+		return 0;
+    }
+
+
     set melhorAcao(melhorAcao) {
         this.melhorAcao = [melhorAcao[0],melhorAcao[1]];
     }
@@ -77,7 +175,6 @@ class EstadoTabuleiro{
     filhos(jogador) 
     {
         let filhos = []; // array de filhos
-        let acoes = [];
         
         //Percorre todo o tabuleiro
         for(let i = 0; i < this.matrizTabuleiro.length; i++) 
@@ -92,6 +189,7 @@ class EstadoTabuleiro{
                 if(e.realizarJogada(jogador, i, j)) 
                 {
                     filhos.push(e);
+                    e.acao = [i,j];
                 }
             }
         }
@@ -114,9 +212,10 @@ class EstadoTabuleiro{
 
     terminou(){
 
-        contador = 0;
-        jogador = 0;
+        let contador = 0;
+        let jogador = 0;
 
+        
         //horizontalmente
         for (let i = 0; i < this.tamLinha; i++) {
             for (let j = 0; j < this.tamColuna; j++) {
@@ -136,8 +235,8 @@ class EstadoTabuleiro{
         }
         
         //verticalmente
-        for (let index = 0; index < this.tamColuna; index++) {
-            for (let index = 0; index < this.tamLinha; index++) {
+        for (let j = 0; j < this.tamColuna; j++) {
+            for (let i = 0; i < this.tamLinha; i++) {
                 if(this.matrizTabuleiro[i][j] == 0){
                     jogador = 0;
                     contador = 0;
@@ -151,10 +250,10 @@ class EstadoTabuleiro{
             }
             contador = 0;
         }
-
+        
         //diagonal a cima direita
         for (let k = 3; k < this.tamLinha; k++) {
-            for (let i = k, j = 0; i >= 0, j < this.tamColuna; i--, j++) {
+            for (let i = k, j = 0; i >= 0&&j < this.tamColuna; i--, j++) {
                 if(this.matrizTabuleiro[i][j] == 0){
                     jogador = 0;
                     contador = 0;
@@ -168,9 +267,9 @@ class EstadoTabuleiro{
             }
             contador = 0;
         }
-        k = this.tamLinha-1;
+        let k = this.tamLinha-1;
         for (let w = 1; w < this.tamColuna-4; w++) {
-            for (let i = k, j = w; i >= 0, j < this.tamColuna; i--, j++) {
+            for (let i = k, j = w; i >= 0 && j < this.tamColuna; i--, j++) {
                 if(this.matrizTabuleiro[i][j] == 0){
                     jogador = 0;
                     contador = 0;
@@ -187,7 +286,7 @@ class EstadoTabuleiro{
 
         //diagonal pra baixo
         for (let k = this.tamLinha -4 ; k >= 0; k--) {
-            for (let i = k, j = 0; i < this.tamLinha, j < this.tamColuna; i++, j++) {
+            for (let i = k, j = 0; i < this.tamLinha && j < this.tamColuna; i++, j++) {
                 if(this.matrizTabuleiro[i][j] == 0){
                     jogador = 0;
                     contador = 0;
@@ -203,7 +302,7 @@ class EstadoTabuleiro{
         }
         k = 0;
         for (let w = 1; w < this.tamColuna-4; w++) {
-            for (let i = k, j = w; i < this.tamLinha, j < this.tamColuna; i++, j++) {
+            for (let i = k, j = w; i < this.tamLinha && j < this.tamColuna; i++, j++) {
                 if(this.matrizTabuleiro[i][j] == 0){
                     jogador = 0;
                     contador = 0;
