@@ -34,7 +34,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -42,6 +46,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
                 }
                 else
@@ -69,7 +76,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -77,6 +88,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
@@ -92,7 +106,7 @@ $('.container div.rowT div').click(function(){
     }
     
     //Verificar se o usuario clicou na coluna 2
-    else if(id == 3 || id == 10 || id == 16 || id == 24 || id == 31 || id == 38)
+    else if(id == 3 || id == 10 || id == 17 || id == 24 || id == 31 || id == 38)
     {
         for (let i = 38; i > 0; i = i - 7) 
         {
@@ -105,7 +119,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -113,6 +131,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
@@ -141,7 +162,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -149,8 +174,8 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
-                    if(ganhei()){
-                        //redireciona para tela de vitoria
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
@@ -181,7 +206,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -189,6 +218,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
@@ -218,7 +250,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -226,6 +262,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }
@@ -254,7 +293,11 @@ $('.container div.rowT div').click(function(){
                 if(jogadorAtual == -1)
                 {
                     setPosicaoJogador(i,jogadorAtual); //coloca o jogador no tabuleiro
-                    objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
+                    objEstado.realizarJogada(jogadorAtual,posI,posJ);
+                    if(objEstado.perdi()){
+                        window.location.href = "tela-ganhou.html";
+                    }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
                     jogadorAtual = 1; //troca o jogador (IA)
@@ -262,6 +305,9 @@ $('.container div.rowT div').click(function(){
                     objEstado.realizarJogada(jogadorAtual,m[0],m[1]); //realiza a jogada no tabuleiro com a melhor jogada possivel
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
+                    if(objEstado.ganhei()){
+                        window.location.href = "tela-perdeu.html";
+                    }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
                 }

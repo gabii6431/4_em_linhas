@@ -6,7 +6,7 @@ class MiniMax{
         let max = -1000000;
         let melhorJogada;
         if (estado.perdi()){
-            //redireciona para pagina de vitoria do jogador
+            window.location.href = "tela-ganhou.html";
         }
         let novosEstados = estado.filhos(1);
 
