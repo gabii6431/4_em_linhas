@@ -22,13 +22,13 @@ body{
     height: 275px;
 }
 
-.rowT {
+/* .rowT {
     clear: both;
-}
+} */
 
 .rowT div {
     font-size: 3em;
-    float: left;
+    /* float: left; */
     width: 70px;
     height: 70px;
     border-left: 4px inset #f0af60;
@@ -37,7 +37,9 @@ body{
     border-top: 4px inset #f0af60;
     border-radius: 50%;
 }
-
+.transparente{
+    visibility: hidden !important;
+}
 
 .line-1 div:nth-child(n)  {
     background: #008e97;
@@ -50,7 +52,10 @@ body{
 } */
 
 .formato-tabuleiro{
-    margin: 0 auto !important;
+    
+    
+    /* margin: 0 auto !important; */
+    margin-top: 30px;
     background: #ff8c00;
     border: 1px solid #ff8c00;
 }
@@ -133,11 +138,21 @@ h4{
     height: 130px;
     margin: 0 auto;
 }
+
+.conf-img{
+    width : 80px;
+    height: 70px;
+}
+
+.conf-img-bolinha{
+    width : 48px;
+    height: 48px;
+}
 .teste{
   position:relative;
-  left:11%;
+  left:4%;
   top:60%;
-  /* transform: translate(-50%, -50%);*/
+   /* transform: translate(-50%, -50%); */
 }
 @media only screen and (max-width: 600px) {
     
@@ -147,4 +162,76 @@ h4{
         margin: 50px auto 0 auto;
         width: 70%;
     }
+}
+@media only screen and (max-width: 768px) {
+    
+    .modal-paginaPrincipal{
+        background:#fff;
+        padding: 30px;
+        margin: 50px auto 0 auto;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    
+    .modal-paginaPrincipal{
+        background:#fff;
+        padding: 30px;
+        margin: 50px auto 0 auto;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    
+    
+    .rowT div {
+        font-size: 2.2em;
+        /* float: left; */
+        width: 60px;
+        height: 60px;
+        border-left: 4px inset #f0af60;
+        border-right: 4px inset #f0af60;
+        border-bottom: 4px inset #f0af60;
+        border-top: 4px inset #f0af60;
+        border-radius: 50%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+        
+    .rowT div {
+        font-size: 1.2em;
+        width: 50px;
+        height: 50px;
+        border-left: 4px inset #f0af60;
+        border-right: 4px inset #f0af60;
+        border-bottom: 4px inset #f0af60;
+        border-top: 4px inset #f0af60;
+        border-radius: 50%;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    
+    .borda-jogadores{
+        border:3px solid #ff8c00;
+        background: #008e97;
+        width: 50px;
+        height: 85px;
+        margin: 0 auto;
+    }
+
+    .conf-img{
+        width : 40px;
+        height: 50px;
+    }
+
+    .conf-img-bolinha{
+        width : 24px;
+        height: 24px;
+    }
+
 }
