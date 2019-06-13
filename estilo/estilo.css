@@ -9,6 +9,13 @@ body{
     background: #eeeeee;
 }
 
+.espaco-superior{
+    margin-top: 20px;
+}
+
+.espaco-inferior{
+    margin-bottom: 20px;
+}
 .container{
     padding-top: 5px;
 }
@@ -29,13 +36,16 @@ body{
 .rowT div {
     font-size: 3em;
     /* float: left; */
-    width: 70px;
+    width: 90px;
     height: 70px;
     border-left: 4px inset #f0af60;
     border-right: 4px inset #f0af60;
     border-bottom: 4px inset #f0af60;
     border-top: 4px inset #f0af60;
     border-radius: 50%;
+}
+.row{
+    width: 100%;
 }
 .transparente{
     visibility: hidden !important;
