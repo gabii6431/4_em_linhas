@@ -1,13 +1,12 @@
 class MiniMax{
     alfa = -5000; //MAX
-    beta = 5000; //MIN  
-
+    beta = 5000; //MIN    
+    nivelDificuldade = parseInt(localStorage.getItem("dificuldade"));
     minimax(estado){
         let max = -1000000;
         let melhorJogada;
         if (estado.perdi()){
-            alert("Ganhei!")
-            //window.location.href = "tela-ganhou.html";
+            alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html" });
         }
         let novosEstados = estado.filhos(1);
 
@@ -29,7 +28,7 @@ class MiniMax{
     max(estado,nivel){
         let terminou = estado.terminou();
         let max = -1000000;
-        let dificuldade = 6
+        let dificuldade = this.nivelDificuldade;
         // let dificuldade = localStorage.getItem('dificuldade');
         if (terminou != -1){
             return terminou;
@@ -50,14 +49,12 @@ class MiniMax{
                 max = candidato;
             }
         }
-
         return max;
-
     }
     min(estado,nivel){
         let terminou = estado.terminou();
         let min = 1000000;
-        let dificuldade = 6
+        let dificuldade = this.nivelDificuldade;
         // let dificuldade = localStorage.getItem('dificuldade')
         if (terminou != -1){
             return terminou;

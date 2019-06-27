@@ -93,7 +93,7 @@ class EstadoTabuleiro{
         return arrayCombo;
     }
     calculaNota(){
-		return 0;
+		return 1;
     }
 
 
@@ -120,7 +120,7 @@ class EstadoTabuleiro{
         return this.acao;
     }
 
-    //Gerador de filhor a partir de um estado pai
+    //Gerador de filhos a partir de um estado pai
     filhos(jogador) 
     {
         let filhos = []; // array de filhos

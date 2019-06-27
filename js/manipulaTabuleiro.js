@@ -1,5 +1,5 @@
 var jogadorAtual = -1 // quem comeca jogar é sempre o X
-
+var contJogadas = 0;
 //JOGADOR -1 = X -> Usuario (Comeca Jogando)
 //JOGADOR 1 = O -> IA
 
@@ -10,7 +10,7 @@ var objEstado = new EstadoTabuleiro();
 
 // Função para realizar as jogas quando ocorrer um click
 $('.container div.rowT div').click(function(){
-    
+    contJogadas = contJogadas + 2;
     //console.log(localStorage.getItem('nivel'));
     
     // Captura o ID da posição da peça
@@ -37,8 +37,7 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei")
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -48,8 +47,10 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi")
-                        //window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
                 }
@@ -81,8 +82,7 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei");
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -92,8 +92,11 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi");
-                        //window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                       
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
@@ -126,8 +129,8 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei");
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
+                        
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -137,8 +140,12 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi");
-                        //window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                        
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                        
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
@@ -171,8 +178,8 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei");
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
+                        
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -182,8 +189,12 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi");
-                       // window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                        
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                        
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
@@ -217,8 +228,8 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei");
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
+                        
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -228,8 +239,12 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi");
-                        //window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                        
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                       
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
@@ -263,8 +278,8 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei");
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
+                        
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -274,8 +289,12 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi");
-                        //window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                        
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                       
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
@@ -308,8 +327,8 @@ $('.container div.rowT div').click(function(){
                     //objEstado.matrizTabuleiro[posI][posJ] = jogadorAtual; // seta a matriz com o jogador atual
                     objEstado.realizarJogada(jogadorAtual,posI,posJ);
                     if(objEstado.perdi()){
-                        alert("Ganhei");
-                        //window.location.href = "tela-ganhou.html";
+                        alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html"; });
+                        
                     }
                     let e = objEstado.clonar(); //clona o estado pai
                     let ia = new MiniMax(); //cria um objeto do tipo minimax
@@ -319,8 +338,12 @@ $('.container div.rowT div').click(function(){
                     let calculaId = m[0]*(objEstado.tamColuna) + m[1] + 1; //calcula o id associado a essa melhor jogasa
                     setPosicaoJogador(calculaId,jogadorAtual); //coloca o jogador no tabuleiro (IA)
                     if(objEstado.ganhei()){
-                        alert("Perdi");
-                        //window.location.href = "tela-perdeu.html";
+                        alertify.confirm('Você perdeu!', function(){ window.location.href = "index.html"; });
+                       
+                    }else if(contJogadas == 42){
+                        alertify.confirm('Deu velha!', function(){ window.location.href = "index.html"; });
+                       
+                        contJogadas = 0;
                     }
                     jogadorAtual = -1; //troca o jogador (Usuario)
 
