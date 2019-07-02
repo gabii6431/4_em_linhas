@@ -4,7 +4,7 @@ class MiniMax{
     nivelDificuldade = parseInt(localStorage.getItem("dificuldade"));
     minimax(estado){
         let max = -1000000;
-        let melhorJogada;
+        let melhoresJogadas;
         if (estado.perdi()){
             alertify.confirm('Você ganhou!', function(){ window.location.href = "index.html" });
         }
@@ -18,11 +18,17 @@ class MiniMax{
             if(candidato > max)
             {
                 max = candidato;
-                melhorJogada = filho;
+                melhoresJogadas = [];
+                melhoresJogadas.push(filho);
+            }else if(candidato == max){
+                melhoresJogadas.push(filho);
             }
         }
-        //console.log(melhorJogada)
-        return melhorJogada.acao;
+        let rand = Math.floor(Math.random() * melhoresJogadas.length)
+        console.log("possibilidades:"+melhoresJogadas.length)
+        console.log("escolha:"+rand)
+        
+        return melhoresJogadas[rand].acao
     }
 
     max(estado,nivel){

@@ -138,7 +138,7 @@ class EstadoTabuleiro{
                 if(e.realizarJogada(jogador, i, j)) 
                 {
                     filhos.push(e);
-                    e.acao = [i,j];
+                    //e.acao = [i,j];
                 }
             }
         }
