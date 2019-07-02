@@ -16,6 +16,22 @@
             <div class="col-1 formato-ia">
                 <a href="index.html"><img src="img/home.png" width="80px" height="70px" alt="home"></a> 
             </div>
+            <div class="col-10 formato-ia" id="texto">
+                <script>
+                    var element = document.getElementById('texto');
+                    var nivelDificuldade = parseInt(localStorage.getItem("dificuldade"));
+                    if(nivelDificuldade == 6)
+                    {
+                        element.innerHTML = '<h3 style = "color: white">Nível de Dificuldade Difícil</h3>';
+                    }
+                    else if(nivelDificuldade == 4){
+                        element.innerHTML = '<h3 style = "color: white">Nível de Dificuldade Médio</h3>';
+                    }
+                    else{
+                        element.innerHTML = '<h3 style = "color: white">Nível de Dificuldade Fácil</h3>';
+                    }
+                </script>
+            </div>
             </div>
     </div>
 

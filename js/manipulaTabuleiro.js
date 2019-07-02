@@ -4,7 +4,6 @@ var contJogadas = 0;
 //JOGADOR 1 = O -> IA
 
 
-
 //Objeto EstadoTabuleiro
 var objEstado = new EstadoTabuleiro();
 

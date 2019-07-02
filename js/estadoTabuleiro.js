@@ -93,7 +93,7 @@ class EstadoTabuleiro{
         return arrayCombo;
     }
     calculaNota(){
-		return 1;
+		return 1000;
     }
 
 

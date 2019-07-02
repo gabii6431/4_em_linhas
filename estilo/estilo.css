@@ -36,7 +36,7 @@ body{
 .rowT div {
     font-size: 3em;
     /* float: left; */
-    width: 90px;
+    width: 70px;
     height: 70px;
     border-left: 4px inset #f0af60;
     border-right: 4px inset #f0af60;
@@ -52,7 +52,7 @@ body{
 }
 
 .line-1 div:nth-child(n)  {
-    background: #008e97;
+    background: #eeeeee;
     color: #ff8c00;
 }
 
@@ -68,6 +68,7 @@ body{
     margin-top: 30px;
     background: #ff8c00;
     border: 1px solid #ff8c00;
+    border-radius: 2%;
 }
 
 h2{
@@ -123,12 +124,14 @@ h4{
 }
 
 .formato-ia{
+    padding-top: 20px;
     margin-top: 20px;
     text-align: center;
 }
 
 
 .formato-users{
+    padding-top: 20px;
     margin-top:20px;
     text-align: center;
 }
@@ -142,7 +145,8 @@ h4{
 }
 
 .borda-jogadores{
-    border:3px solid #ff8c00;
+    border:3px solid #008e97;
+    padding-top: 5px;
     background: #008e97;
     width: 100px;
     height: 130px;
